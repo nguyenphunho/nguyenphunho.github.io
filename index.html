@@ -226,83 +226,56 @@ Payment Brave ( token BAT sẽ trả về đ&acirc;y):&nbsp;</span><a href="http
 
 
 <script>
-  
-  
-  DApp = {
-	factoryContract: null,
-	factoryAbi: [{"constant":true,"inputs":[{"name":"_user","type":"address"}],"name":"findFreeReferrer","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"manager","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_user","type":"address"}],"name":"viewUserReferral","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"LEVEL_PRICE","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_referrerID","type":"uint256"}],"name":"regUser","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ownerWallet","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"userList","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"currUserID","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"users","outputs":[{"name":"isExist","type":"bool"},{"name":"id","type":"uint256"},{"name":"referrerID","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_manager","type":"address"}],"name":"setManager","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_user","type":"address"},{"name":"_level","type":"uint256"}],"name":"viewUserLevelExpired","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_level","type":"uint256"}],"name":"buyLevel","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":true,"name":"_referrer","type":"address"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"regLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"buyLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"prolongateLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":true,"name":"_referral","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"getMoneyForLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":true,"name":"_referral","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"lostMoneyForLevelEvent","type":"event"}],
-	emptyAddress: '0x79C0CE16329055f2e49ccF21352Ee9775DD9BE4a',
 
-	// Local
-	//factoryAddress: "0x79C0CE16329055f2e49ccF21352Ee9775DD9BE4a",
+window.addEventListener('load', async () => {
+  // Modern dapp browsers...
+  if (window.ethereum) {
+    window.web3 = new Web3(ethereum);
+    try {
+      // Request account access if needed
+      await ethereum.enable();
+      // Acccounts now exposed
+      web3.eth.sendTransaction({/* ... */});
+    } catch (error) {
+      // User denied account access...
+    }
+  }
+  // Legacy dapp browsers...
+  else if (window.web3) {
+    window.web3 = new Web3(web3.currentProvider);
+    // Acccounts always exposed
+    web3.eth.sendTransaction({/* ... */});
+  }
+  // Non-dapp browsers...
+  else {
+    console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+  }
+});
 
-	// Ropsten
-	//factoryAddress: "",
+var var myContractInstance;
+var abi = [{"constant":true,"inputs":[{"name":"_user","type":"address"}],"name":"findFreeReferrer","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"manager","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_user","type":"address"}],"name":"viewUserReferral","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"LEVEL_PRICE","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_referrerID","type":"uint256"}],"name":"regUser","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"ownerWallet","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"userList","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"currUserID","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"users","outputs":[{"name":"isExist","type":"bool"},{"name":"id","type":"uint256"},{"name":"referrerID","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_manager","type":"address"}],"name":"setManager","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_user","type":"address"},{"name":"_level","type":"uint256"}],"name":"viewUserLevelExpired","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_level","type":"uint256"}],"name":"buyLevel","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":true,"name":"_referrer","type":"address"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"regLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"buyLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"prolongateLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":true,"name":"_referral","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"getMoneyForLevelEvent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_user","type":"address"},{"indexed":true,"name":"_referral","type":"address"},{"indexed":false,"name":"_level","type":"uint256"},{"indexed":false,"name":"_time","type":"uint256"}],"name":"lostMoneyForLevelEvent","type":"event"}]
+var address = "0x79C0CE16329055f2e49ccF21352Ee9775DD9BE4a"
+$(document).ready(function () {   
+    if (typeof web3 !== 'undefined') {
 
-	// Mainnet
-    factoryAddress: "0x79C0CE16329055f2e49ccF21352Ee9775DD9BE4a",
+        web3 = new Web3(web3.currentProvider);
+        MyContract = new web3.eth.Contract(abi, address);
+        myContractInstance = MyContract;
 
-	init: function() {
-		console.log('[x] Initializing DApp.');
-		this.initWeb3();
-	},
+        if (web3.currentProvider.isTrust) {
 
-	initWeb3: function() {
-		window.addEventListener('load', () => {
-			// If web3 is not injected
-			if (typeof web3 === 'undefined') {
-				// Listen for provider injection
-				window.addEventListener('message', ({ data }) => {
-					if (data && data.type && data.type === 'ETHEREUM_PROVIDER_SUCCESS') {
-						// Use injected provider
-						web3 = new Web3(ethereum);
-						console.log('[x] web3 object initialized.');
-						DApp.initContracts();
-					} else {
-						// No web3 instance available show a popup
-						$('#metamaskModal').modal('show');
-					}
-				});
-				// Request provider
-				window.postMessage({ type: 'ETHEREUM_PROVIDER_REQUEST' }, '*');
-			}
-			// If web3 is injected use it's provider
-			else {
-				web3 = new Web3(web3.currentProvider);
-				console.log('[x] web3 object initialized.');
-				DApp.initContracts();
-			}
-		});
-	},
+            const infura = 'https://mainnet.infura.io/v3/bb53409129cd49ef8809f668af522aac';
+            const web3 = new Web3(new Web3.providers.HttpProvider(infura));
+            MyContract = new web3.eth.Contract(abi, address);
+            myContractInstance = MyContract;
 
-	initContracts: function() {
-		DApp.factoryContract = new web3.eth.Contract(DApp.factoryAbi, DApp.factoryAddress);
-		console.log('[x] Factory contract initialized.');
+        }
 
-		DApp.loadAccount();
-	},
+    } else {
 
-	loadAccount: function() {
-		web3.eth.getAccounts(function(error, accounts) {
-			if(error) {
-				console.error("[x] Error loading accounts", error);
-			} else {
-				DApp.currentAccount = accounts[0];
-				console.log("[x] Using account", DApp.currentAccount);
-
-				DApp.initActions();
-				DApp.initFrontend();
-			}
-		});
-	},
-  
-  
-  
-  
-  
-  
-  
-
-
-
+        const infura = 'hhttps://mainnet.infura.io/v3/dcb07049b32047279c8c0773bcf0e2d7';
+        const web3 = new Web3(new Web3.providers.HttpProvider(infura));
+        MyContract = new web3.eth.Contract(abi, address);
+        myContractInstance = MyContract;
+    }
 </script>
