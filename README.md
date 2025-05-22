@@ -1,3 +1,261 @@
-#nguyenphunho.github.io
-#linktr.ee/nguyenphunho
-#bullrunv3.github.io/
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang web cá nhân của Nguyễn Phú Nhờ - All in One">
+    <title>Nguyễn Phú Nhờ - All in one</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--light-color);
+            transform: skewY(-2deg);
+            z-index: 1;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        h2, h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--secondary-color);
+            color: white;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 1rem 0;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>All IN ONE</h1>
+            <p>Chào mừng bạn đến với trang web chính thức của tôi</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2>Giới thiệu</h2>
+            <p>Xin chào! Tôi là Nguyễn Phú Nhờ. Đây là trang web chính thức tổng hợp tất cả các kênh liên hệ và dự án của tôi.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Dịch vụ chính thức</h2>
+            <div class="project-list">
+<p>🔐 Hỗ trợ Khôi phục Ví Crypto 🔐</p>
+</p>🆘 Quên Mật khẩu</p>
+</p>🆘 Quên 2FA</p>
+</p>🆘 Quên Authy</p>
+</p>🆘 Quên Gmail</p>
+</p>🆘 Quên 12 ký tự</p>
+</p>🆘 Chuyển coin sai nền tảng mạng lưới,…</p>
+</p>✅ Hỗ trợ tất cả các vấn đề liên quan tới ví, sàn crypto đang hoạt động.</p>
+</p>❌ ĐẶC BIỆT: Mất điện thoại mất hết dữ liệu cung cấp thông tin sẽ lấy lại được. Ví từ 2014 Đến hiện tại!</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Liên hệ & Hợp tác</h2>
+            <div class="social-links">
+                <li class="menu-item"><a href="/">Home</a></li>
+                <li class="menu-item"><a href="https://premium.theagalliance.asia/register/5GNPYQBW">AGA</a></li>
+                <li class="menu-item"><a href="https://members.goldfun24k.com/register">Gold Fun</a></li>
+                <li class="menu-item"><a href="https://nguyenphunho.github.io/unclock">Unlock Crypto</a></li>
+                <li class="menu-item"><a href="https://www.binance.com/referral/mystery-box/2025-pizza-day/claim?ref=GRO_16987_HLZFR">Binance</a></li>
+                
+                <a href="https://premium.theagalliance.asia/register/5GNPYQBW" class="btn" target="_blank"><i class="fas fa-globe"></i> AGA Project</a>
+                <a href="https://github.com/nguyenphunho" class="btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://instagram.com/nguyenphunho66668888" class="btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.threads.net/@nguyenphunho66668888" class="btn" target="_blank"><i class="fas fa-comment-dots"></i> Threads</a>
+                <a href="https://youtube.com/@matrixpro2024" class="btn" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="https://x.com/INHERIT38092481" class="btn" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://tiktok.com/@nguyenphunho" class="btn" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://api.whatsapp.com/send?phone=84977367981" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/nguyenphunho66668888" class="btn" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="mailto:nguyenphunho@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 All in one. Bảo lưu mọi quyền.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Trang web đã sẵn sàng!');
+            
+            // Hiệu ứng scroll mượt mà
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Hiệu ứng khi cuộn trang
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section');
+                const scrollPosition = window.scrollY + window.innerHeight;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollPosition > sectionTop + 100) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            // Khởi tạo trạng thái ban đầu cho sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Kích hoạt hiệu ứng ngay lần đầu load trang
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+</body>
+</html>
