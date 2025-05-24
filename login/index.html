@@ -1,0 +1,59 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="https://nguyenphunho.github.io/favicon_aga.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <title>Angel Guardian Alliance</title>
+
+  <script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 18927794;
+    window.__lc.integration_name = "manual_onboarding";
+    window.__lc.product_name = "livechat";
+
+    (function(n, t, c) {
+      var e = {
+        _q: [], _h: null, _v: "2.0",
+        on: function() { e._q.push(["on", [].slice.call(arguments)]); },
+        once: function() { e._q.push(["once", [].slice.call(arguments)]); },
+        off: function() { e._q.push(["off", [].slice.call(arguments)]); },
+        get: function() { throw new Error("[LiveChatWidget] You can't use getters before load."); },
+        call: function() { e._q.push(["call", [].slice.call(arguments)]); },
+        init: function() {
+          var s = t.createElement("script");
+          s.async = true;
+          s.src = "https://cdn.livechatinc.com/tracking.js";
+          t.head.appendChild(s);
+        }
+      };
+      n.LiveChatWidget = e;
+
+      e.on('ready', function () {
+        e.call('minimize');
+      });
+
+      e.init();
+
+    })(window, document);
+  </script>
+  
+
+  <script type="module" crossorigin src="https://nguyenphunho.github.io/assets/index-CZyna_cq.js"></script>
+  <link rel="stylesheet" crossorigin href="https://nguyenphunho.github.io/assets/index-D79KfHnV.css">
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <noscript>
+    <a href="https://www.livechat.com/chat-with/18927794/" rel="nofollow">Chat with us</a>, powered by
+    <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a>
+  </noscript>
+
+
+</body>
