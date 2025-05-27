@@ -1,0 +1,420 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aga-goldfun-landing</title>
+    <script type="module" crossorigin src="/assets/index-PiL4byaZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DLF9DOvU.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  <footer-btn></footer-btn>
+<script>
+    // 定义自定义元素
+    class FooterBtn extends HTMLElement {
+        constructor() {
+            super();
+            // 创建 Shadow DOM
+            const shadow = this.attachShadow({ mode: 'open' });
+            // 创建组件的HTML结构
+            const wrapper = document.createElement('div');
+            wrapper.setAttribute('class', 'wrapper');
+            // 添加一些内容到组件中
+            wrapper.innerHTML = `
+                
+            // 创建样式
+            const style = document.createElement('style');
+            style.textContent = `
+            @keyframes changeWidth {
+                0% {
+                    width: 150px;
+                    background-color: transparent;
+                }
+                100% {
+                    width: 574px;
+                    background-color: #fff;
+                }
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                border: unset;
+            }
+
+            * {
+                line-height: 1.2;
+                text-shadow: initial;
+                font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            a {
+                text-decoration: unset;
+            }
+
+            .page-footer-mobile {
+                z-index: 10000;
+                display: none;
+                position: absolute;
+                right: 16px;
+                bottom: 16px;
+            }
+
+            .page-footer {
+                z-index: 10000;
+                display: flex;
+                padding: 4px 4px 4px 12px;
+                align-items: center;
+                gap: 16px;
+                position: fixed;
+                right: 16px;
+                bottom: 16px;
+                border-radius: 24px;
+                border: 1px solid transparent;
+                background: transparent;
+                transition: 0.3s;
+            }
+
+            .footer-close-btn {
+                display: none;
+                z-index: 10002;
+                cursor: pointer;
+                position: absolute;
+                right: -3px;
+                top: -3px;
+            }
+
+            .footer-bg {
+                overflow: hidden;
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                height: 38px;
+                width: 150px;
+                background-color: transparent;
+                border-radius: 24px;
+            }
+
+            .tooltip-box {
+                display: none;
+                transition: 0.3s;
+                z-index: 10001;
+                align-items: center;
+                gap: 1px;
+            }
+
+            .tooltip-desc {
+                color: #858481;
+                /* Label/Primary */
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px; /* 133.333% */
+            }
+
+            .footer-button {
+                z-index: 10001;
+                right: 16px;
+                bottom: 16px;
+                user-select: none;
+                cursor: pointer;
+                display: flex;
+                padding: 5px 10px;
+                align-items: center;
+                height: 30px;
+                gap: 2px;
+                transition: 0.3s;
+                border-radius: 14px;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                background: #1a1a19;
+                box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 8px 32px 0px rgba(0, 0, 0, 0.06);
+            }
+
+            .footer-logo {
+                width: 18px;
+                height: 18px;
+            }
+
+            .footer-button:hover .create-title {
+                opacity: 0.8;
+            }
+
+            .footer-button:hover .footer-logo {
+                opacity: 0.8;
+            }
+
+            .page-footer:hover .footer-close-btn {
+                display: block;
+            }
+
+            .page-footer:hover .create-title {
+                display: block;
+            }
+
+            .page-footer:hover .title {
+                display: none;
+            }
+
+            .page-footer:hover .footer-bg {
+                animation: changeWidth 0.3s ease-in-out forwards;
+                border: 1px solid rgba(0, 0, 0, 0.06);
+                background: #fff;
+                box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 8px 32px 0px rgba(0, 0, 0, 0.06);
+            }
+
+            .page-footer:hover .tooltip-box {
+                position: absolute;
+                text-wrap-mode: nowrap;
+                display: flex;
+                left: 10px;
+                top: 9px;
+            }
+
+            .tooltip-icon {
+                position: relative;
+                cursor: pointer;
+            }
+
+            .tooltip-dialog {
+                display: none;
+                position: absolute;
+                bottom: 154%;
+                left: -10%;
+                transform: translateX(-50%);
+                padding: 10px;
+                border-radius: 12px;
+                font-size: 12px;
+                line-height: 16px;
+                background-color: #171818;
+                color: #fff;
+                max-width: 280px;
+                width: max-content;
+            }
+
+            .title {
+                color: #fff;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px;
+            }
+
+            .create-title {
+                display: none;
+                color: #fff;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+            }
+
+            .footer-dialog {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .dialog-box {
+                display: flex;
+                width: 358px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                border-radius: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.04);
+                background: #fff;
+
+                /* menu/main */
+                box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.02), 0px 4px 32px 0px rgba(0, 0, 0, 0.16);
+                backdrop-filter: blur(40px);
+            }
+
+            .dialog-header {
+                display: flex;
+                padding: 16px 12px 8px 16px;
+                align-items: flex-start;
+                gap: 16px;
+                align-self: stretch;
+            }
+
+            .dialog-header-title {
+                flex: 1;
+                color: #34322d;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+            }
+
+            .dialog-body {
+                display: flex;
+                padding: 0px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                align-self: stretch;
+                color: #535350;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+            }
+
+            .dialog-footer {
+                display: flex;
+                padding: 16px;
+                align-items: flex-start;
+                gap: 12px;
+                align-self: stretch;
+            }
+
+            .dialog-footer-button-left {
+                display: flex;
+                width: 119px;
+                min-width: 114px;
+                min-height: 48px;
+                padding: 12px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                border-radius: 12px;
+                background: rgba(55, 53, 47, 0.06);
+                color: #34322d;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+            }
+
+            .dialog-footer-button-right {
+                display: flex;
+                min-width: 114px;
+                min-height: 48px;
+                padding: 12px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                flex: 1 0 0;
+                border-radius: 12px;
+                background: #1a1a19;
+                color: #fff;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+            }
+
+            @media (max-width: 600px) {
+                .page-footer {
+                    display: none;
+                }
+                .page-footer-mobile {
+                    display: block;
+                }
+                .footer-button {
+                    position: fixed
+                }
+            }
+            `;
+            // 将样式和内容添加到Shadow DOM
+            shadow.appendChild(style);
+            shadow.appendChild(wrapper);
+
+            // 在connectedCallback中设置事件监听器
+            this.setupEventListeners(shadow);
+        }
+        onclickEvent(shadow, domStr, fn) {
+            const clickDom = shadow.querySelector(domStr);
+            if (clickDom) {
+                clickDom.onclick = (event) => {
+                    fn(event, clickDom);
+                };
+            }
+        }
+        setupEventListeners(shadow) {
+            const changeDialogStyle = (displayStatus) => {
+                const dialog = shadow.querySelector('.footer-dialog');
+                if (dialog) {
+                    dialog.style.display = displayStatus;
+                }
+            };
+
+            const createSite = () => {
+                window.open('https://manus.im/invitation?from=space', '_blank');
+                changeDialogStyle('none');
+            };
+
+            this.onclickEvent(shadow, '.page-footer-mobile .dialog-footer-button-left', () => {
+                changeDialogStyle('none');
+            });
+
+            this.onclickEvent(shadow, '.page-footer-mobile .dialog-footer-button-right', () => {
+                createSite();
+            });
+
+            this.onclickEvent(shadow, '.page-footer-mobile .dialog-header-icon', () => {
+                changeDialogStyle('none');
+            });
+
+            this.onclickEvent(shadow, '.page-footer-mobile .footer-button', () => {
+                changeDialogStyle('flex');
+            });
+
+            this.onclickEvent(shadow, '.footer-close-btn', () => {
+                localStorage.setItem('embedClosed', 'true');
+                shadow.querySelector('.page-footer').style.display = 'none';
+                shadow.querySelector('.page-footer-mobile').style.display = 'none';
+            });
+
+            this.onclickEvent(shadow, '.page-footer-mobile .footer-dialog', (event, dialog) => {
+                if (event.target === dialog) {
+                    changeDialogStyle('none');
+                }
+            });
+
+            const tooltipIcon = shadow.querySelector('.tooltip-icon');
+            const tooltipDialog = shadow.querySelector('.tooltip-dialog');
+
+            tooltipIcon.addEventListener('mouseenter', function () {
+                tooltipDialog.style.display = 'block';
+            });
+
+            tooltipIcon.addEventListener('mouseleave', function () {
+                tooltipDialog.style.display = 'none';
+            });
+
+            if (localStorage.getItem('embedClosed')) {
+                shadow.querySelector('.page-footer').style.display = 'none';
+                shadow.querySelector('.page-footer-mobile').style.display = 'none';
+            }
+        }
+    }
+    // 注册自定义元素
+    customElements.define('footer-btn', FooterBtn);
+</script>
+<script
+			defer
+			data-domain="manus.space"
+			src="/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"
+		></script>
+		<script>
+			window.plausible =
+				window.plausible ||
+				function () {
+					(window.plausible.q = window.plausible.q || []).push(arguments);
+				};
+			plausible('custom-pageview', {
+			  props: {
+    			domain: window.location.host
+  			}
+			})
+		</script></body>
+</html>
