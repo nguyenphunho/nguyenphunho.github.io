@@ -4,7 +4,7 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
   plugins: [react()],
-  base: '/aga-goldfun/',
+  base: '/aga-goldfun.html/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
