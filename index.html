@@ -5,33 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nguyễn Phú Nhờ - All IN ONE</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <meta name="description" content="Trang web chính thức của Nguyễn Phú Nhờ - Hỗ trợ khôi phục ví Crypto, bảo mật và tự do tài chính."/>
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
       color: #333;
     }
 
     header {
-      background: #2c3e50;
+      background: linear-gradient(to right, #2c3e50, #34495e);
       color: white;
-      padding: 1rem;
+      padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
     nav {
       background: #34495e;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .menu-toggle {
       display: none;
-      background: #34495e;
-      color: white;
       padding: 1rem;
-      text-align: right;
+      color: white;
       cursor: pointer;
+      text-align: right;
+    }
+
+    .menu-toggle i {
+      margin-right: 8px;
     }
 
     ul.menu {
@@ -41,17 +54,16 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-    }
-
-    ul.menu li {
-      margin: 0;
+      transition: max-height 0.3s ease-out;
+      overflow: hidden;
     }
 
     ul.menu li a {
       display: block;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       color: white;
       text-decoration: none;
+      transition: background 0.3s;
     }
 
     ul.menu li a:hover {
@@ -63,28 +75,32 @@
     }
 
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     .btn {
       display: inline-block;
       margin: 0.5rem 0.25rem;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       background: #3498db;
       color: white;
       text-decoration: none;
-      border-radius: 4px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
     }
 
     .btn:hover {
       background: #2980b9;
+      transform: translateY(-2px);
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
       background: #2c3e50;
       color: white;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
     }
 
     @media (max-width: 600px) {
@@ -93,12 +109,12 @@
       }
 
       ul.menu {
-        display: none;
         flex-direction: column;
+        max-height: 0;
       }
 
       ul.menu.show {
-        display: flex;
+        max-height: 500px;
       }
     }
   </style>
@@ -111,25 +127,29 @@
   </header>
 
   <nav>
-    <div class="menu-toggle" onclick="toggleMenu()">☰ MENU</div>
+    <div class="menu-toggle" onclick="toggleMenu()" aria-label="Mở menu">
+      <i class="fas fa-bars"></i> MENU
+    </div>
     <ul class="menu" id="menu">
-      <li><a href="/">HOME</a></li>
-      <li><a href="https://hpbehrdu.manus.space">AGA & GOLDFUN</a></li>
-      <li><a href="https://zalo.me/g/xgbmcx449">UNCLOK WALLET</a></li>
-      <li><a href="https://accounts.binance.com/register?ref=10055878">BINANCE</a></li>
+      <li><a href="#home">HOME</a></li>
+      <li><a href="https://hpbehrdu.manus.space" target="_blank">AGA & GOLDFUN</a></li>
+      <li><a href="https://zalo.me/g/xgbmcx449" target="_blank">UNLOCK WALLET</a></li>
+      <li><a href="https://accounts.binance.com/register?ref=10055878" target="_blank">BINANCE</a></li>
     </ul>
   </nav>
 
   <main>
-    <section>
-      <h2>Dịch vụ chính</h2>
+    <section id="home">
+      <h2>DỊCH VỤ CHÍNH</h2>
       <p>🔐 Khôi phục ví Crypto</p>
       <p>🆘 Quên mật khẩu, 2FA, Authy, Gmail, 12 ký tự...</p>
       <p>✅ Hỗ trợ tất cả vấn đề liên quan tới ví/sàn Crypto</p>
       <p>❌ Mất điện thoại mất dữ liệu vẫn có thể khôi phục!</p>
+      <h2>TIẾP BƯỚC HÀNH TRÌNH TỰ DO TÀI CHÍNH</h2>
+      <a href="https://hpbehrdu.manus.space/" class="btn" target="_blank">🚀 Mở trang AGA-GOLDFUN</a>
     </section>
 
-    <section>
+    <section id="contact">
       <h2>Liên hệ & Mạng xã hội</h2>
       <a href="https://github.com/nguyenphunho" class="btn"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://instagram.com/nguyenphunho66668888" class="btn"><i class="fab fa-instagram"></i> Instagram</a>
