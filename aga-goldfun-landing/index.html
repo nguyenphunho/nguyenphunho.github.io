@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nguyễn Phú Nhờ - All IN ONE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #34495e;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: #34495e;
+      color: white;
+      padding: 1rem;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    ul.menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    ul.menu li {
+      margin: 0;
+    }
+
+    ul.menu li a {
+      display: block;
+      padding: 1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    ul.menu li a:hover {
+      background: #1abc9c;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0.5rem 0.25rem;
+      padding: 0.5rem 1rem;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      background: #2980b9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2c3e50;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      ul.menu {
+        display: none;
+        flex-direction: column;
+      }
+
+      ul.menu.show {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>All IN ONE</h1>
+    <p>Chào mừng bạn đến với trang web chính thức của tôi</p>
+  </header>
+
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰ MENU</div>
+    <ul class="menu" id="menu">
+      <li><a href="/">HOME</a></li>
+      <li><a href="https://hpbehrdu.manus.space">AGA & GOLDFUN</a></li>
+      <li><a href="https://zalo.me/g/xgbmcx449">UNCLOK WALLET</a></li>
+      <li><a href="https://accounts.binance.com/register?ref=10055878">BINANCE</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Dịch vụ chính</h2>
+      <p>🔐 Khôi phục ví Crypto</p>
+      <p>🆘 Quên mật khẩu, 2FA, Authy, Gmail, 12 ký tự...</p>
+      <p>✅ Hỗ trợ tất cả vấn đề liên quan tới ví/sàn Crypto</p>
+      <p>❌ Mất điện thoại mất dữ liệu vẫn có thể khôi phục!</p>
+    </section>
+
+    <section>
+      <h2>Liên hệ & Mạng xã hội</h2>
+      <a href="https://github.com/nguyenphunho" class="btn"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://instagram.com/nguyenphunho66668888" class="btn"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://youtube.com/@matrixpro2024" class="btn"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="https://tiktok.com/@nguyenphunho" class="btn"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://x.com/INHERIT38092481" class="btn"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="https://www.facebook.com/nguyenphunho66668888" class="btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="mailto:nguyenphunho@gmail.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 All in one. Bảo lưu mọi quyền.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
