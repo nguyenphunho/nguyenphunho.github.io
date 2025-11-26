@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaga Global - Sức Khỏe và Cơ Hội Kinh Doanh</title>
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #5a8c5a;
+            --accent: #d4af37;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #c19d27;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 15px auto;
+        }
+        
+        /* Health Risks */
+        .health-risks {
+            background-color: white;
+        }
+        
+        .risk-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .risk-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .risk-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .risk-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .risk-card p {
+            color: #666;
+        }
+        
+        /* Products */
+        .products {
+            background-color: #f8f9fa;
+        }
+        
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .product-features li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        /* Certifications */
+        .certifications {
+            background-color: white;
+        }
+        
+        .cert-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .cert-logo {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Business Opportunity */
+        .business-opportunity {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .opportunity-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .growth-stats {
+            text-align: center;
+        }
+        
+        .growth-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--light);
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">CHAGA <span>GLOBAL</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#products">Sản Phẩm</a></li>
+                        <li><a href="#certifications">Chứng Nhận</a></li>
+                        <li><a href="#opportunity">Cơ Hội Kinh Doanh</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bạn Đang Đánh Đổi Sức Khỏe và Tương Lai Tài Chính?</h1>
+                <p>Khám phá Giải pháp Sức khỏe Toàn diện từ Nấm Chaga Siberia và Cơ hội Kinh doanh Đột phá cùng Chaga Global</p>
+                <a href="#opportunity" class="cta-button">BẮT ĐẦU NGAY</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Risks Section -->
+    <section class="health-risks" id="risks">
+        <div class="container">
+            <h2 class="section-title">Nguy Cơ Sức Khỏe Hiện Nay</h2>
+            <div class="risk-cards">
+                <div class="risk-card">
+                    <h3>Tim Mạch</h3>
+                    <p>Bệnh tim mạch là nguyên nhân tử vong hàng đầu tại Việt Nam và nhiều quốc gia trên thế giới.</p>
+                </div>
+                <div class="risk-card">
+                    <h3>Tiểu Đường</h3>
+                    <p>Hơn 4 triệu người Việt mắc tiểu đường với tỷ lệ gia tăng đáng báo động mỗi năm.</p>
+                </div>
+                <div class="risk-card">
+                    <h3>Gan & Thận</h3>
+                    <p>Các bệnh về gan và thận ngày càng gia tăng do lối sống và môi trường ô nhiễm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Giải Pháp Sản Phẩm Chaga Toàn Diện</h2>
+            <div class="product-cards">
+                <div class="product-card">
+                    <div class="product-image">Hình ảnh Dinh Dưỡng Kháng Thể Nano Chaga</div>
+                    <div class="product-info">
+                        <h3>Dinh Dưỡng Kháng Thể Nano Chaga</h3>
+                        <div class="product-price">907.500₫</div>
+                        <ul class="product-features">
+                            <li>Tăng cường miễn dịch</li>
+                            <li>Phục hồi tổng thể</li>
+                            <li>Hỗ trợ năng lượng</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Hình ảnh Viên Chaga Betics Gold</div>
+                    <div class="product-info">
+                        <h3>Viên Chaga Betics Gold</h3>
+                        <div class="product-price">605.000₫</div>
+                        <ul class="product-features">
+                            <li>Hỗ trợ tiểu đường</li>
+                            <li>Bảo vệ tim mạch</li>
+                            <li>Cân bằng đường huyết</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Hình ảnh Trà Chaga</div>
+                    <div class="product-info">
+                        <h3>Trà Chaga</h3>
+                        <div class="product-price">302.500₫</div>
+                        <ul class="product-features">
+                            <li>Thanh lọc cơ thể</li>
+                            <li>Hỗ trợ tiêu hóa</li>
+                            <li>Bảo vệ gan & thận</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Hình ảnh Cao Chaga (Cao Chagasibi)</div>
+                    <div class="product-info">
+                        <h3>Cao Chaga (Cao Chagasibi)</h3>
+                        <div class="product-price">2.420.000₫</div>
+                        <ul class="product-features">
+                            <li>Tinh chất cô đặc</li>
+                            <li>Hỗ trợ chuyên sâu</li>
+                            <li>Kết quả nhanh chóng</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <h2 class="section-title">Uy Tín & Chứng Nhận</h2>
+            <div class="cert-logos">
+                <div class="cert-logo">Giấy chứng nhận Bộ Y tế</div>
+                <div class="cert-logo">Tiêu chuẩn GMP</div>
+                <div class="cert-logo">Chứng nhận FDA</div>
+                <div class="cert-logo">Tiêu chuẩn ISO</div>
+                <div class="cert-logo">Sản phẩm Vàng Cộng đồng</div>
+                <div class="cert-logo">Top 10 Thương hiệu</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Opportunity Section -->
+    <section class="business-opportunity" id="opportunity">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Cơ Hội Kinh Doanh Đột Phá</h2>
+            <div class="opportunity-content">
+                <div class="growth-stats">
+                    <div class="growth-number">360%</div>
+                    <p>Tăng trưởng mỗi năm</p>
+                    <p>Mô hình kinh doanh thông minh, dễ nhân bản với tốc độ tăng trưởng vượt trội</p>
+                </div>
+                <div class="opportunity-details">
+                    <h3>Hỗ Trợ 1:1</h3>
+                    <p>Chính sách hợp tác minh bạch với hỗ trợ đồng hành từ đội ngũ chuyên gia</p>
+                    
+                    <h3 style="margin-top: 30px;">Lợi Ích Kinh Doanh:</h3>
+                    <ul class="benefits-list">
+                        <li>Thu nhập thụ động từ hệ thống</li>
+                        <li>Làm việc linh hoạt, chủ động thời gian</li>
+                        <li>Không cần vốn lớn để bắt đầu</li>
+                        <li>Hỗ trợ marketing & đào tạo đầy đủ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Đừng Chỉ Là Người Tiêu Dùng, Hãy Là Đối Tác Kinh Doanh</h2>
+            <p>Bắt đầu hành trình sức khỏe và thịnh vượng tài chính ngay hôm nay</p>
+            <a href="https://chagaglobal.com/ref/281557" class="cta-button" style="margin-top: 20px;">THAM GIA NGAY</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Về Chaga Global</h3>
+                    <p>Chaga Global cam kết mang đến giải pháp sức khỏe toàn diện từ nấm Chaga Siberia tự nhiên và cơ hội kinh doanh đột phá cho cộng đồng.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liên Hệ</h3>
+                    <ul>
+                        <li>Website: chagaglobal.com</li>
+                        <li>Email: info@chagaglobal.com</li>
+                        <li>Email: nguyenphunho@gmail.com</li>
+                        <li>Hotline: 0977.367.981</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Chính Sách</h3>
+                    <ul>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Chaga Global. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
